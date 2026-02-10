@@ -17,9 +17,28 @@ Proceso
     • Edad de Alberto = 2/3 * edad de Juan.
     • Edad de Ana = 4/3 * edad de Juan.
 """
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = int(edad)
 
-edad_juan = int(input("Ingrese la edad de Juan: "))
-edad_alberto = (2/3) * edad_juan
-edad_ana = (4/3) * edad_juan
-edad_mama_juan = edad_juan + edad_alberto + edad_ana
-print(f"Edades de los 3 hijos:\nJuan: {edad_juan}\nAlberto: {int(edad_alberto)}\nAna: {int(edad_ana)}\nEdad de la Mama de juan: {int(edad_mama_juan)}")
+class CalculadorFamilia:
+    def __init__(self, edad_juan):
+
+        self.juan = Persona("Juan", edad_juan)
+        self.alberto = Persona("Alberto", (2/3) * edad_juan)
+        self.ana = Persona("Ana", (4/3) * edad_juan)
+        
+        edad_mama = self.juan.edad + self.alberto.edad + self.ana.edad
+        self.mama = Persona("Mamá de Juan", edad_mama)
+
+    def mostrar_reporte(self):
+        print("--- Reporte de Edades ---")
+        for hijo in [self.juan, self.alberto, self.ana]:
+            print(f"{hijo.nombre}: {hijo.edad} años")
+        print(f"-------------------------")
+        print(f"{self.mama.nombre}: {self.mama.edad} años")
+
+edad_input = int(input("Ingrese la edad de Juan: "))
+familia = CalculadorFamilia(edad_input)
+familia.mostrar_reporte()

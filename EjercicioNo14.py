@@ -1,6 +1,20 @@
 """
  Elabore un algoritmo que lea un número y obtenga su cuadrado y su cubo.
 """
+class CalculadoraPotencias:
+    def __init__(self, valor):
+        self.numero = valor
 
-numero = int(input("Ingrese el numero para hallar su cuadrado y cubo: "))
-print(f"El cuadrado del numero {numero} es {numero**2} y su cubo es {numero**3}.")
+    def cuadrado(self):
+        return self.numero ** 2
+
+    def cubo(self):
+        return self.numero ** 3
+
+    def mostrar_resultados(self):
+        print(f"El cuadrado del numero {self.numero} es {self.cuadrado()}")
+        print(f"Y su cubo es {self.cubo()}.")
+
+n = int(input("Ingrese el numero: "))
+operacion = CalculadoraPotencias(n)
+operacion.mostrar_resultados()

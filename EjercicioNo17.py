@@ -6,5 +6,18 @@ de la circunferencia.
 
 from math import pi
 
-radio = int(input("Inserte el radio del circulo para calcular su area y circunferencia: "))
-print(f"El area de circulo de radio {radio} es {round(pi*(radio**2), 2)} y su circunferencia es {round(2*radio*pi, 2)}")
+class Circulo:
+    def __init__(self, radio):
+        self.radio = radio
+
+    def calcular_area(self):
+        return round(pi * (self.radio ** 2), 2)
+
+    def calcular_circunferencia(self):
+        return round(2 * pi * self.radio, 2)
+
+r = int(input("Inserte el radio del circulo: "))
+mi_circulo = Circulo(r)
+
+print(f"El área es: {mi_circulo.calcular_area()}")
+print(f"La circunferencia es: {mi_circulo.calcular_circunferencia()}")
